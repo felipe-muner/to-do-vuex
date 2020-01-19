@@ -2,7 +2,7 @@
   <div id="product-list-one">
     <h2>Product List One</h2>
     <ul>
-      <li v-for="product in products" v-bind:key="product">
+      <li v-for="product in saleProducts" v-bind:key="product">
         <span class="name">{{product.name}}</span>&nbsp;
         <span class="price">U${{product.price}}</span>
       </li>
@@ -15,6 +15,9 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
+    },
+    saleProducts() {
+      return this.$store.getters.saleProducts;
     }
   }
 };
