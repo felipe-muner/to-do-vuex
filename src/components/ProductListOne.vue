@@ -2,11 +2,12 @@
   <div id="product-list-one">
     <h2>Product List One</h2>
     <ul>
-      <li v-for="product in saleProducts" v-bind:key="product">
+      <li v-for="product in saleProducts" v-bind:key="product.id">
         <span class="name">{{product.name}}</span>&nbsp;
         <span class="price">U${{product.price}}</span>
       </li>
     </ul>
+    <button v-on:click="reducePrice">Reduce Price</button>
   </div>
 </template>
 
@@ -18,6 +19,11 @@ export default {
     },
     saleProducts() {
       return this.$store.getters.saleProducts;
+    }
+  },
+  methods: {
+    reducePrice: function() {
+      this.$store.commit("reducePrice");
     }
   }
 };

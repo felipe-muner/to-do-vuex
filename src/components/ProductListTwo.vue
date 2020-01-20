@@ -2,9 +2,9 @@
   <div id="product-list-two">
     <h2>Product List Two</h2>
     <ul>
-      <li v-for="product in saleProducts" v-bind:key="product">
-        <span class="name">{{product.name}}</span>&nbsp;
-        <span class="price">U${{product.price}}</span>
+      <li v-for="product in saleProducts" v-bind:key="product.id">
+        <span class="name">{{ product.name }}</span>
+        <span class="price">£{{ product.price }}</span>
       </li>
     </ul>
   </div>

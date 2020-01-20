@@ -4,12 +4,13 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  strict: true,
   state: {
     products: [
-      { name: "Banana Skin", price: 20 },
-      { name: "Shiny Star", price: 40 },
-      { name: "Green Shells", price: 60 },
-      { name: "Red Shells", price: 80 }
+      { id: 1, name: "Banana Skin", price: 20 },
+      { id: 2, name: "Shiny Star", price: 40 },
+      { id: 3, name: "Green Shells", price: 60 },
+      { id: 4, name: "Red Shells", price: 80 }
     ]
   },
   getters: {
@@ -21,6 +22,13 @@ export const store = new Vuex.Store({
         };
       });
       return valeProducts;
+    }
+  },
+  mutations: {
+    reducePrice: state => {
+      state.products.forEach(product => {
+        product.price -= 1;
+      });
     }
   }
 });
