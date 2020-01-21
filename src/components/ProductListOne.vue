@@ -8,24 +8,32 @@
       </li>
     </ul>
     <button v-on:click="reducePrice(4)">Reduce Price</button>
+    - {{products}} -
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
+
 export default {
   computed: {
-    products() {
-      return this.$store.state.products;
-    },
-    saleProducts() {
-      return this.$store.getters.saleProducts;
-    }
+    // products() {
+    //   return this.$store.state.products;
+    // },
+    ...mapState(["products"]),
+    ...mapGetters(["saleProducts"])
+    // saleProducts() {
+    //   return this.$store.getters.saleProducts;
+    // }
   },
   methods: {
-    reducePrice: function(amount) {
-      // this.$store.commit('reducePrice', amount); // straight to mutation (NOT NICE)
-      this.$store.dispatch("reducePrice", amount);
-    }
+    ...mapActions(["reducePrice"])
+    // reducePrice: function(amount) {
+    //   // this.$store.commit('reducePrice', amount); // straight to mutation (NOT NICE)
+    //   this.$store.dispatch("reducePrice", amount);
+    // }
   }
 };
 </script>
