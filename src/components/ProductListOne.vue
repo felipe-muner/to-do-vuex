@@ -3,6 +3,7 @@
     <h2>Product List One</h2>
     <ul>
       <li v-for="product in saleProducts" v-bind:key="product.id">
+        <!-- <li v-for="(product, i) in saleProducts" v-bind:key="product.id">  -->
         <span class="name">{{product.name}}</span>&nbsp;
         <span class="price">U${{product.price}}</span>
       </li>
